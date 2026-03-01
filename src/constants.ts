@@ -1,7 +1,9 @@
+const base = import.meta.env.BASE_URL;
+
 export const IMAGES = {
     // ローカルからインポートした日本人女性画像（最優先）
-    AGITATION_1: "/media/76857_0.jpg",
-    AGITATION_2: "/media/76858_0.jpg",
+    AGITATION_1: `${base}media/76857_0.jpg`,
+    AGITATION_2: `${base}media/76858_0.jpg`,
 
     // 以下は指定外の箇所のフォールバック用として使用する、日本人女性（アジア系高級感・美容）のフリー素材
     // SOLUTION: セラピストによる繊細な施術の様子
@@ -22,9 +24,9 @@ export const IMAGES = {
 
 export const VIDEOS = {
     // ローカル動画素材
-    HERO_BG: "/media/動画c 260116.mp4",
-    EVIDENCE_BG_1: "/media/動画260116.mp4",
-    EVIDENCE_BG_2: "/media/動画b 260116.mp4",
+    HERO_BG: `${base}media/動画c 260116.mp4`,
+    EVIDENCE_BG_1: `${base}media/動画260116.mp4`,
+    EVIDENCE_BG_2: `${base}media/動画b 260116.mp4`,
 };
 
 export const LINKS = {
