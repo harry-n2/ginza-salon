@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  /* Mysticoのような真紅・深紅をベースカラーに設定 */
+  --color-theme-blood: #2a0404;
+  /* 極めて暗い赤（影） */
+  --color-theme-ruby: #9e0004;
+  /* 華やかな真紅 */
+  --color-theme-crimson: #5a0002;
+  /* ベース背景となる非常に深い赤 */
+  --color-theme-black: #1a0000;
+  /* 真っ黒ではなく、赤みを帯びた黒。締めに使用 */
+  --color-theme-charcoal: #2b0002;
+  --color-theme-offWhite: #fff5f5;
+  /* ほんの少し赤みを含んだ白で統一感を出す */
+  --color-theme-gold: #c5a059;
+
+  --font-serif: "Shippori Mincho", serif;
+  --font-display: "Cinzel", serif;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer utilities {
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Glass panel approach from wtnext -> Red style */
+  .glass-panel {
+    background: rgba(90, 0, 2, 0.6);
+    /* 深紅の半透明 */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    /* elegant gold border */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* 完全なる赤基調グラデーション背景 */
+  background: linear-gradient(135deg, var(--color-theme-crimson) 0%, var(--color-theme-black) 100%);
+  background-attachment: fixed;
+  color: var(--color-theme-offWhite);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Custom scrollbar to match red/gold theme */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-theme-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-theme-gold);
+  border-radius: 10px;
+}
