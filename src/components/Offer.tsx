@@ -1,6 +1,6 @@
 import React from 'react';
 import { CTAButton } from './CTAButton';
-import { IMAGES, LINKS } from '../constants';
+import { LINKS } from '../constants';
 
 export const Offer: React.FC = () => {
     return (
