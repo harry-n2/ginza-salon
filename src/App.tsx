@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 // 新12セクション構成のインポート
 import { FirstView } from './components/FirstView';
@@ -107,8 +107,8 @@ function MainLP() {
       {/* Footer Area with Legal Links */}
       <footer className="bg-gradient-to-b from-[#100000] to-black py-16 px-6 border-t border-theme-gold/20 relative z-10">
         <div className="flex justify-center flex-wrap gap-8 mb-8 text-white/80 text-sm tracking-widest font-serif">
-          <a href="/law" className="hover:text-theme-gold transition-colors">特定商取引法に基づく表記</a>
-          <a href="/privacy" className="hover:text-theme-gold transition-colors">プライバシーポリシー</a>
+          <Link to="/law" className="hover:text-theme-gold transition-colors">特定商取引法に基づく表記</Link>
+          <Link to="/privacy" className="hover:text-theme-gold transition-colors">プライバシーポリシー</Link>
         </div>
         <p className="text-theme-offWhite/40 text-xs tracking-widest font-serif">
           © {new Date().getFullYear()} ルネセル銀座サロン All Rights Reserved.
@@ -133,7 +133,7 @@ function MainLP() {
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainLP />} />
